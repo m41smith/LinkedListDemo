@@ -14,6 +14,8 @@ public class Main {
         list.addFirst("test node 2");
         list.addFirst("test node 1");
         list.print();
+        System.out.println(list.getFirst().data);
+        System.out.println(list.getLast().data);
         System.out.println(list.head.nextNode.data);
     }
 
