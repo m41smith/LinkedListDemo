@@ -9,5 +9,12 @@ public class Main {
 
         Node test1= new Node("jkl;", test2);
         System.out.println(test1.nextNode.data);
+
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.addFirst("test node 2");
+        list.addFirst("test node 1");
+        list.print();
+        System.out.println(list.head.nextNode.data);
     }
+
 }
