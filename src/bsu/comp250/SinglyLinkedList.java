@@ -84,4 +84,32 @@ public class SinglyLinkedList {
             return this.tail;
         }
     }
+
+    public void removeFirst() throws NoSuchElementException{
+        if (this.size == 0) {
+            throw new NoSuchElementException("This list is empty!");
+        } else if (this.size == 1) {
+            this.clear();
+        } else {
+            this.head = this.head.nextNode;
+            --this.size;
+        }
+    }
+
+    public void removeLast() throws NoSuchElementException{
+        if (this.size == 0) {
+            throw new NoSuchElementException("This list is empty!");
+        } else if (this.size == 1) {
+            this.clear();
+        } else {
+            Node current = this.head;
+            while (current.nextNode != this.tail) {
+                current = current.nextNode;
+            }
+            //System.out.println(current.data);
+            current.nextNode = null;
+            this.tail = current;
+            --this.size;
+        }
+    }
 }
