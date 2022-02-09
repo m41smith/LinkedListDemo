@@ -2,9 +2,9 @@ package bsu.comp250;
 
 import java.util.NoSuchElementException;
 
-public class SinglyLinkedList {
-    Node head;
-    Node tail;
+public class SinglyLinkedList<T> {
+    Node<T> head;
+    Node<T> tail;
     int size;
 
     public SinglyLinkedList() {
@@ -26,7 +26,7 @@ public class SinglyLinkedList {
         }
 
         String output = "";
-        Node current = this.head;
+        Node<T> current = this.head;
 
         //traverse the list until we get to null at the end
         while (current != null) {
@@ -37,39 +37,39 @@ public class SinglyLinkedList {
         System.out.println(output + "null.");
     }
 
-    public void addFirst(String data) {
+    public void addFirst(T data) {
         //2 cases: list is either empty or not empty
         //either way, we'll have to increment the size!
         if (this.size == 0){
             //if list is empty, the new node will be both the head and tail
-            Node newNode = new Node( data, null);
+            Node<T> newNode = new Node<T>( data, null);
             //Update head and tail accordingly
             this.head = newNode;
             this.tail = newNode;
         } else {
             //if non-empty, new node needs to point to the existing head
-            Node newNode = new Node(data, this.head);
+            Node<T> newNode = new Node<T>(data, this.head);
             this.head = newNode;
         }
         ++this.size;
     }
 
-    public void addLast(String data) {
+    public void addLast(T data) {
         if (this.size == 0) {
             //if list is empty, the new node will be both the head and tail
-            Node newNode = new Node( data, null);
+            Node<T> newNode = new Node<T>( data, null);
             //Update head and tail accordingly
             this.head = newNode;
             this.tail = newNode;
         } else {
-            Node newNode = new Node(data, null);
+            Node<T> newNode = new Node<T>(data, null);
             this.tail.nextNode = newNode;
             this.tail = newNode;
         }
         ++this.size;
     }
 
-    public Node getFirst() throws NoSuchElementException {
+    public Node<T> getFirst() throws NoSuchElementException {
         if (this.size == 0) {
             throw new NoSuchElementException("This list is empty!");
         } else {
@@ -77,7 +77,7 @@ public class SinglyLinkedList {
         }
     }
 
-    public Node getLast() throws NoSuchElementException {
+    public Node<T> getLast() throws NoSuchElementException {
         if (this.size == 0) {
             throw new NoSuchElementException("This list is empty!");
         } else {
@@ -102,7 +102,7 @@ public class SinglyLinkedList {
         } else if (this.size == 1) {
             this.clear();
         } else {
-            Node current = this.head;
+            Node<T> current = this.head;
             while (current.nextNode != this.tail) {
                 current = current.nextNode;
             }

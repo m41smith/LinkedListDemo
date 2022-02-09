@@ -1,12 +1,12 @@
 package bsu.comp250;
 
-public class Node {
+public class Node<T> {
     //a field for the string data
     //a field for the Node pointer
-    String data;
-    Node nextNode;
+    T data;
+    Node<T> nextNode;
 
-    public Node(String newData, Node newNextNode) {
+    public Node(T newData, Node<T> newNextNode) {
         //set the value of data and nextNode using the supplied arguments
         this.data = newData;
         this.nextNode = newNextNode;
